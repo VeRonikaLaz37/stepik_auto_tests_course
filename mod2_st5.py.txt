@@ -1,0 +1,103 @@
+https://suninjuly.github.io/math.html
+
+x_element = browser.find_element(By.CSS_SELECTOR, selector_value)
+x = x_element.text
+y = calc(x)
+
+import math
+
+def calc(x):
+  return str(math.log(abs(12*math.sin(int(x)))))
+
+option1 = browser.find_element(By.CSS_SELECTOR, "[value='python']")
+option1.click()
+
+
+from selenium import webdriver
+import math
+import time
+
+try:
+    browser = webdriver.Chrome()
+    browser.get('https://suninjuly.github.io/math.html')
+    def calc(x):
+    return str(math.log(abs(12*math.sin(int(x)))))
+    x_element = browser.find_element(By.CSS_SELECTOR, selector_value)
+    x = x_element.text
+    y = calc(x)
+    input1 = browser.find_element(By.ID,"answer")
+    input1.send_keys(y)
+    option1 = browser.find_element(By.CSS_SELECTOR, "robotsRule")
+    option1.click()
+    browser.find_element(By.CSS_SELECTOR("button.submit")
+    button.click()
+
+finally:
+    time.sleep(30)
+    browser.quit()
+
+from selenium import webdriver
+import math
+browser = webdriver.Chrome()
+try:
+    browser.get("https://suninjuly.github.io/math.html")
+    x_element = browser.find_element(By.CSS_SELECTOR, "#input_value")
+    x = x_element.text
+    def calc(x):
+        return str(math.log(abs(12 * math.sin(int(x)))))
+    y = calc(x)
+    answer_input = browser.find_element(By.CSS_SELECTOR, "#answer")
+    answer_input.send_keys(y)
+    checkbox = browser.find_element(By.CSS_SELECTOR, "#robotCheckbox")
+    checkbox.click()
+    radiobutton = browser.find_element(By.CSS_SELECTOR, "#robotsRule")
+    radiobutton.click()
+    submit_button = browser.find_element(By.CSS_SELECTOR, "[type='submit']")
+    submit_button.click()
+finally:
+    time.sleep(10)
+    browser.quit()
+```
+
+
+
+from selenium import webdriver
+import math
+
+# Инициализация WebDriver
+browser = webdriver.Chrome()
+
+try:
+    # Открыть страницу
+    browser.get("https://suninjuly.github.io/math.html")
+
+    # Считать значение переменной x
+    x_element = browser.find_element_by_css_selector("#input_value")
+    x = x_element.text
+
+    # Рассчитать значение функции
+    def calc(x):
+        return str(math.log(abs(12 * math.sin(int(x)))))
+
+    y = calc(x)
+
+    # Ввести ответ в текстовое поле
+    answer_input = browser.find_element_by_css_selector("#answer")
+    answer_input.send_keys(y)
+
+    # Отметить checkbox
+    checkbox = browser.find_element_by_css_selector("#robotCheckbox")
+    checkbox.click()
+
+    # Выбрать radiobutton
+    radiobutton = browser.find_element_by_css_selector("#robotsRule")
+    radiobutton.click()
+
+    # Нажать на кнопку Submit
+    submit_button = browser.find_element_by_css_selector("[type='submit']")
+    submit_button.click()
+
+finally:
+    # Закрыть браузер
+    browser.quit()
+```

@@ -1,0 +1,34 @@
+Задание: переход на новую вкладку
+В этом задании после нажатия кнопки страница откроется в новой вкладке, нужно переключить WebDriver на новую вкладку и решить в ней задачу.
+
+Сценарий для реализации выглядит так:
+
+Открыть страницу http://suninjuly.github.io/redirect_accept.html
+Нажать на кнопку
+Переключиться на новую вкладку
+Пройти капчу для робота и получить число-ответ
+
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import math
+import time
+browser = webdriver.Chrome()
+try:
+    browser.get("http://suninjuly.github.io/redirect_accept.html")
+    submit_button = browser.find_element(By.CSS_SELECTOR, "[type='submit']")
+    submit_button.click()
+    new_window = browser.window_handles[1]
+    browser.switch_to.window(new_window)  
+    x_element = browser.find_element(By.ID, "input_value")
+    x = x_element.text
+    def calc(x):
+       return str(math.log(abs(12 * math.sin(int(x)))))
+    y = calc(x)
+    answer_input = browser.find_element(By.CSS_SELECTOR, "#answer")
+    answer_input.send_keys(y)
+    submit_button = browser.find_element(By.CSS_SELECTOR, "[type='submit']")
+    submit_button.click()
+finally:
+    time.sleep(10)
+    browser.quit()
